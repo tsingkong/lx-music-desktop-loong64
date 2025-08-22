@@ -201,7 +201,7 @@ const handleStartServer = async(port = 9527, ip = '0.0.0.0') => await new Promis
     socket.remote = msg2call.remote
     socket.remoteQueueList = msg2call.createQueueRemote('list')
     socket.remoteQueueDislike = msg2call.createQueueRemote('dislike')
-    socket.addEventListener('message', ({ data }) => {
+    socket.addEventListener('message', (data: any) => {
       if (typeof data != 'string') return
       void decryptMsg(socket.keyInfo, data).then((data) => {
         let syncData: any
@@ -244,7 +244,7 @@ const handleStartServer = async(port = 9527, ip = '0.0.0.0') => await new Promis
         closeEvents.splice(closeEvents.indexOf(handler), 1)
       }
     }
-    socket.broadcast = function(handler) {
+    socket.broadcast = function(handler: any) {
       if (!wss) return
       for (const client of wss.clients) handler(client)
     }

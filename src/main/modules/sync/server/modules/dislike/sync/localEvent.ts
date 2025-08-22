@@ -16,7 +16,7 @@ const sendListAction = async(wss: LX.Sync.Server.SocketServer, action: LX.Sync.D
     if (!key) key = await userSpace.dislikeManage.createSnapshot()
     void client.remoteQueueDislike.onDislikeSyncAction(action).then(async() => {
       return userSpace.dislikeManage.updateDeviceSnapshotKey(client.keyInfo.clientId, key)
-    }).catch(err => {
+    }).catch((err: any) => {
       // TODO send status
       client.close(SYNC_CLOSE_CODE.failed)
       // client.moduleReadys.dislike = false

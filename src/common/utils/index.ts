@@ -1,3 +1,4 @@
+// @ts-ignore
 import log from 'electron-log/node'
 
 

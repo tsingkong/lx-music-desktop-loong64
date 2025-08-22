@@ -55,7 +55,7 @@ module.exports = async(context) => {
   const { electronPlatformName, arch } = context
   const electronVersion = context.packager?.info?._framework?.version ?? require('../package.json').devDependencies.electron.replace(/^[^\d]*?(\d+)/, '$1')
   const electronNodeAbi = nodeAbi.getAbi(electronVersion, 'electron')
-  await replaceQrcDecodeLib(electronNodeAbi, electronPlatformName, arch)
+  // await replaceQrcDecodeLib(electronNodeAbi, electronPlatformName, arch)
   if (electronPlatformName !== 'linux' || process.env.FORCE) return
   const bindingFilePath = path.join(__dirname, '../node_modules/better-sqlite3/binding.gyp')
   const bindingBakFilePath = path.join(__dirname, '../node_modules/better-sqlite3/binding.gyp.bak')

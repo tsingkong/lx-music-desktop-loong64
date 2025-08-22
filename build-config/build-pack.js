@@ -284,6 +284,7 @@ const build = async(target, arch, packageType, publishType) => {
     ia32: arch == 'x86' || arch == 'x86_64',
     arm64: arch == 'arm64',
     armv7l: arch == 'armv7l',
+    loong64: arch == 'loong64',
     config: { ...options, ...targetInfo.options },
   })
   // .then((result) => {

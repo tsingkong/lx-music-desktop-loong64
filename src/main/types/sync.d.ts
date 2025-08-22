@@ -50,7 +50,7 @@ declare global {
           remoteQueueList: LX.Sync.ClientSyncListActions
           remoteQueueDislike: LX.Sync.ClientSyncDislikeActions
         }
-        type SocketServer = WS.Server<Socket>
+        type SocketServer = WS.Server<typeof Socket>
       }
     }
   }

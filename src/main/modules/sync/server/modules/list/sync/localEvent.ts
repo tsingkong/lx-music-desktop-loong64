@@ -16,7 +16,7 @@ const sendListAction = async(wss: LX.Sync.Server.SocketServer, action: LX.Sync.L
     if (!key) key = await userSpace.listManage.createSnapshot()
     void client.remoteQueueList.onListSyncAction(action).then(async() => {
       return userSpace.listManage.updateDeviceSnapshotKey(client.keyInfo.clientId, key)
-    }).catch(err => {
+    }).catch((err: any) => {
       // TODO send status
       client.close(SYNC_CLOSE_CODE.failed)
       // client.moduleReadys.list = false

@@ -1,10 +1,13 @@
 import { rendererSend, rendererInvoke, rendererOn, rendererOff } from '@common/rendererIpc'
 import { HOTKEY_RENDERER_EVENT_NAME, WIN_MAIN_RENDERER_EVENT_NAME, CMMON_EVENT_NAME } from '@common/ipcNames'
-import { type ProgressInfo, type UpdateDownloadedEvent, type UpdateInfo } from 'electron-updater'
+import { ProgressInfo as progressInfo, UpdateDownloadedEvent as updateDownloadedEvent, UpdateInfo as updateInfo } from 'electron-updater'
 import { markRaw } from '@common/utils/vueTools'
 import * as hotKeys from '@common/hotKey'
 import { APP_EVENT_NAMES, DATA_KEYS, DEFAULT_SETTING } from '@common/constants'
 
+type ProgressInfo = typeof progressInfo
+type UpdateDownloadedEvent = typeof updateDownloadedEvent
+type UpdateInfo = typeof updateInfo
 type RemoveListener = () => void
 
 export const getSetting = async() => {
